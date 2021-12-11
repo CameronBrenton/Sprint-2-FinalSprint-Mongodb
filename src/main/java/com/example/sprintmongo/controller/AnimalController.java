@@ -39,14 +39,10 @@ public class AnimalController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping("/animal/{animal_id}")
+    @GetMapping(value = "/animal/{animal_id}", produces = "application/json")
     public ResponseEntity<Animal> getAnimalsByAnimal_Id(@PathVariable("animal_id") long animal_id) {
-        Optional<Animal> animalData =animalRepository.findById(animal_id);
-        if (animalData.isPresent()) {
-            return new ResponseEntity<>(animalData.get(), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        Optional<Animal> animalData = animalRepository.findById(animal_id);
+        return animalData.map(animal -> new ResponseEntity<>(animal, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
 
@@ -78,7 +74,7 @@ public class AnimalController {
         } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @DeleteMapping("/Animal/{animal_id}")
+    @DeleteMapping("/animal/{animal_id}")
     public ResponseEntity<HttpStatus> deleteAnimal(@PathVariable("animal_id") long animal_id) {
         try {
             animalRepository.deleteById(animal_id);
