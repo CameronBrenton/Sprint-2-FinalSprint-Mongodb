@@ -1,0 +1,23 @@
+body {
+    background-color: White;
+}
+h1{
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    width:50%;
+}
+
+img {
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    width:275;
+}
+
+div {
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    width:50%;
+}

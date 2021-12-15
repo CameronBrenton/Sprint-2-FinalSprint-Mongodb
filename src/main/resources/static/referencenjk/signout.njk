@@ -1,0 +1,25 @@
+{% extends layout %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+        <title>Sign out</title>
+    </head>
+
+<body>
+    
+   <form method="POST" action="/signout">
+        <input type="submit" value="Logout" />
+        <a href="/signin">Already Sign up? Sign In</a>
+        
+    </form>
+
+
+
+
+</body>
+
+
+</html>
+{% endblock %}

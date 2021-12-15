@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<title>Search results</title>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <title>Sign Up</title>
+</head>
+<body>
+<div align="center">
+    <h1>Search Results</h1>
+    <span>Database: MongoDB</span><span th:text="${search.database}"></span></br>
+    <span>Search Topic: </span><span th:text="${search.topic}"></span>
+
+    <table border="0=1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>animal_id</th>
+                <th>animal_name</th>
+                <th>animal_color</th>
+                <th>animal_origin</th>
+                <th>species</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="animal: ${listAnimals}">
+                <td th:text="${animal.animal_id}">Animal ID</td>
+                <td th:text="${animal.animalName}">Animal Name</td>
+                <td th:text="${animal.animalColor}">Animal Color</td>
+                <td th:text="${animal.animalOrigin}">Animal Origin</td>
+                <td th:text="${animal.species}">Animal Species</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
