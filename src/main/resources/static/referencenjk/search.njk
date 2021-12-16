@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<script src="./app.js"></script>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+        <title>Search Engine</title>
+    </head>
+
+
+
+<body>
+
+    <label for="Client">Choose a Database:  </label>
+    {{ message }}   
+   
+
+        
+
+<form method="POST" action="/submit">
+    <input id="important_string" name="important_string" placeholder="Enter your query">
+    <select name="client" id="client">
+      <option id="postgres" value="postgres">Postgres</option>
+      <option id="mongodb" value="mongodb">MongoDB</option>
+      <option id="both" value="both">Both</option>
+    </select>
+    
+    <button type="submit">Search</button>
+</form>
+
+
+
+</body>
+</html>
