@@ -16,10 +16,12 @@ public class User implements Serializable {
     private String firstName;
     private String lastName;
 
+    //Empty Constructor
     public User(){
 
     }
 
+    // Default Constructor
     public User(String email, String password) {
         this.email = email;
         this.password = password;
@@ -28,13 +30,14 @@ public class User implements Serializable {
     }
 
 
+    // Constructor
     public User(String email, String password, String firstName, String lastName) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
     }
-
+    // Getter and Setters
     public Long getId() {
         return id;
     }
@@ -75,6 +78,7 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
+    // To string method to display user information
     @Override
     public String toString() {
         return "User{" +
