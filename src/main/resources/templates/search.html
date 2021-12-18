@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
     <title>Search Engine</title>
 </head>
+//how we search from our database
 <body>
 <label >Database: PgAdmin4</label>
 <form method="POST" action="#" th:action="@{/search}" th:object="${search}">
@@ -14,6 +15,7 @@
     <!--    </select>-->
     <button type="submit">Search</button>
 </form>
+//this button switches the database from mongo to pgadmin
 <a href="http://localhost:8080/searchPgadmin" style="text-decoration: none"><button>Redirect to Search MongoDB</button></a>
 
 
