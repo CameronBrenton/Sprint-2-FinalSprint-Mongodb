@@ -6,11 +6,13 @@
     <title>Sign Up</title>
 </head>
 <body>
-<form method="POST" action="#" th:action="@{/signup}" th:object="${user}">
+<form method="POST" th:action="@{/signup}" th:object="${user}">
     <input type="text" th:field="*{email}" placeholder="email">
     <input type="password" th:field="*{password}" placeholder="password">
-    <input type="password" placeholder="confirm password">
+    <input type="text" th:field="*{firstName}" placeholder="First name">
+    <input type="text" th:field="*{lastName}" placeholder="Last name">
     <button type="submit">Sign Up</button>
+    <a href="/login">Already Sign up? Sign In</a>
 </form>
 </body>
 </html>

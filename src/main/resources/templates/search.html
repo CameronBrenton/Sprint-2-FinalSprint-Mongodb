@@ -6,15 +6,15 @@
     <title>Search Engine</title>
 </head>
 <body>
-<label>Database: MongoDB</label>
+<label >Database: PgAdmin4</label>
 <form method="POST" action="#" th:action="@{/search}" th:object="${search}">
     <input type="text" th:field="*{topic}" placeholder="Enter your query">
-<!--    <select th:field="*{database}">-->
-<!--        <option th:each="p: ${databaseList}" th:value="${p}" th:text="${p}"}></option>-->
-<!--    </select>-->
+    <!--    <select th:field="*{database}">-->
+    <!--        <option th:each="p: ${databaseList}" th:value="${p}" th:text="${p}"}></option>-->
+    <!--    </select>-->
     <button type="submit">Search</button>
 </form>
-<button><a href="http://localhost:98080/searchPgadmin" style="text-decoration: none">Redirect to Search Pgadmin</a></button>
+<a href="http://localhost:8080/searchPgadmin" style="text-decoration: none"><button>Redirect to Search MongoDB</button></a>
 
 
 
