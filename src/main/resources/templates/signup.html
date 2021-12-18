@@ -6,7 +6,7 @@
     <title>Sign Up</title>
 </head>
 <body>
-//signing up
+<!--signing up-->
 <form method="POST" th:action="@{/signup}" th:object="${user}">
     <input type="text" th:field="*{email}" placeholder="email">
     <input type="password" th:field="*{password}" placeholder="password">
