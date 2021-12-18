@@ -16,7 +16,7 @@ public class Search {
     public Search() {
     }
 
-    // Default Constructor
+    // Parameterized Constructor
     public Search(String topic, String database) {
         this.topic = topic;
         this.database = database;

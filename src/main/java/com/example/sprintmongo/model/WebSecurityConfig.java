@@ -40,13 +40,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return authProvider;
     }
 
-    // Throw error message if authentication fail
+    // Throw error message if authentication fails
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
     }
 
-    // Configure security to throw error message if user did not signp
+    // Configure / throw error message if user is not found in the database
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()

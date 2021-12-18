@@ -10,7 +10,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     private UserRepository userRepo;
 
-    // Set up error exceptions to handler users not found in the database
+    // Set up error exceptions method to handler users not found in the database
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepo.findByEmail(username);
