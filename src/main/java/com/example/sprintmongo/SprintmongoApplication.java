@@ -1,5 +1,6 @@
-package com.example.sprintmongo;
+// This is the SprintmongoApplication class
 
+package com.example.sprintmongo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
