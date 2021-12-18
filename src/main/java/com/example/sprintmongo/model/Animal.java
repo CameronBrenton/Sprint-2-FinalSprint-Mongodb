@@ -17,7 +17,7 @@ public class Animal {
     public Animal() {
     }
 
-    // Default Constructor
+    //Parameterized Constructor
     public Animal(long animal_id, String species, String animalName, String animalColor, String animalOrigin) {
         this.animal_id = animal_id;
         this.species = species;

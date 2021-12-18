@@ -21,7 +21,7 @@ public class User implements Serializable {
 
     }
 
-    // Default Constructor
+    // Parameterized Constructor
     public User(String email, String password) {
         this.email = email;
         this.password = password;
@@ -30,7 +30,7 @@ public class User implements Serializable {
     }
 
 
-    // Constructor
+    // Overload Constructor
     public User(String email, String password, String firstName, String lastName) {
         this.email = email;
         this.password = password;

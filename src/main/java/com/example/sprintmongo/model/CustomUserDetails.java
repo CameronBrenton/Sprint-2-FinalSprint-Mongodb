@@ -8,11 +8,12 @@ import java.util.Collection;
 public class CustomUserDetails implements UserDetails {
     private User user;
 
-    // Default Constructor
+    // Parameterized Constructor
     public CustomUserDetails(User user) {
         this.user = user;
     }
 
+    // Getters and Setters
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
