@@ -7,6 +7,7 @@
 </head>
 <body>
 <label>Database: MongoDB</label>
+//this is how we search in our mongo db database
 <form method="POST" action="#" th:action="@{/search}" th:object="${search}">
     <input type="text" th:field="*{topic}" placeholder="Enter your query">
 <!--    <select th:field="*{database}">-->
@@ -14,6 +15,7 @@
 <!--    </select>-->
     <button type="submit">Search</button>
 </form>
+// this button redirects you to a different running localhost that uses pgadmin instead of mongo!
 <button><a href="http://localhost:98080/searchPgadmin" style="text-decoration: none">Redirect to Search Pgadmin</a></button>
 
 
