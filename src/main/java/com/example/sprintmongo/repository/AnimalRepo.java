@@ -8,5 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface AnimalRepo extends MongoRepository<Animal, Long> {
-    List<Animal> findByAnimalName(@Param("species") String species);
+    List<Animal> findByAnimalName(@Param("animalName") String animalName);
+
 }
