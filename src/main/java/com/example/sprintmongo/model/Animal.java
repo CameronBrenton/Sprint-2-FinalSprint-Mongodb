@@ -13,9 +13,11 @@ public class Animal {
     private String animalColor;
     private String animalOrigin;
 
+    // Empty Constructor
     public Animal() {
     }
 
+    // Default Constructor
     public Animal(long animal_id, String species, String animalName, String animalColor, String animalOrigin) {
         this.animal_id = animal_id;
         this.species = species;
@@ -23,9 +25,7 @@ public class Animal {
         this.animalColor = animalColor;
         this.animalOrigin = animalOrigin;
     }
-
-
-
+    // Getter and Setters
     public long getAnimal_id() {
         return animal_id;
     }
@@ -33,7 +33,6 @@ public class Animal {
     public void setAnimal_id(long animal_id) {
         this.animal_id = animal_id;
     }
-
     public String getSpecies() {
         return species;
     }

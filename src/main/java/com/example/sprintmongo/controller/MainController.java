@@ -1,10 +1,13 @@
-package com.example.sprintmongo.controller;
+// This is the Main Controller
 
+package com.example.sprintmongo.controller;
 import com.example.sprintmongo.model.Animal;
 import com.example.sprintmongo.model.Search;
 import com.example.sprintmongo.model.User;
 import com.example.sprintmongo.repository.AnimalRepo;
+import com.example.sprintmongo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -20,17 +23,13 @@ import java.util.List;
 public class MainController {
     @Autowired
     private AnimalRepo animalRepository;
+    @Autowired
+    private UserRepository userRepo;
 
-    // Get Mappings
-    @GetMapping(path = "/signin")
-    public String getLogInPage() {
-
-        return "logIn";
-    }
-
+    // Signout
     @GetMapping(path = "/signout")
     public String getLogOutPage() {
-        return "logout";
+        return "signout";
     }
 
 
@@ -45,16 +44,18 @@ public class MainController {
         return "search";
     }
 
+    // Post search
     @PostMapping(path = "/search")
     public String submitSearchFormMongoDB(@ModelAttribute("search")Search search, Model model) {
         List<Animal> listAnimals = new ArrayList<Animal>();
+        // Query the database
         animalRepository.findByAnimalName(search.getTopic()).forEach(listAnimals::add);
         model.addAttribute("listAnimals", listAnimals);
         System.out.println("#######" + listAnimals);
         return "search_results";
     }
 
-    // Signup
+    // Get Signup
     @GetMapping(path = "/signup")
     public String showSignupForm(Model model) {
         User user = new User();
@@ -62,8 +63,14 @@ public class MainController {
         return "signup";
     }
 
+    // Post signup
     @PostMapping(path = "/signup")
     public String submitSignupForm(@ModelAttribute("user")User user) {
+        // Encrypt password into database
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+        userRepo.save(user);
         System.out.println(user);
         return "signup_success";
     }

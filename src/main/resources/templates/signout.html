@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
     <title>Sign out</title>
@@ -8,12 +7,8 @@
 
 <body>
 
-//This code is used for signing out
-
-<form method="POST" action="/signout">
+<form method="POST" th:action="@{/logout}">
     <input type="submit" value="Logout" />
-    <a href="/signin">Already Sign up? Sign In</a>
-
 </form>
 
 
@@ -23,4 +18,3 @@
 
 
 </html>
-{% endblock %}

@@ -1,22 +1,52 @@
 package com.example.sprintmongo.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.io.Serializable;
 
+
+@Document(collection = "users")
 public class User implements Serializable {
+    @Id
+    private long id;
+
     private String email;
     private String password;
+    private String firstName;
+    private String lastName;
 
-
+    //Empty Constructor
     public User(){
 
     }
 
+    // Default Constructor
     public User(String email, String password) {
         this.email = email;
         this.password = password;
+        this.firstName = null;
+        this.lastName = null;
     }
 
-    public String getEmail() {
+
+    // Constructor
+    public User(String email, String password, String firstName, String lastName) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    // Getter and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEmail(){
         return email;
     }
 
@@ -32,10 +62,28 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    // To string method to display user information
     @Override
     public String toString() {
         return "User{" +
-                "email='" + email + '\'' +
+                "id=" + id +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
