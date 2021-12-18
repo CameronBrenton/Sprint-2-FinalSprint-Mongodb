@@ -4,7 +4,9 @@ import com.example.sprintmongo.model.Animal;
 import com.example.sprintmongo.model.Search;
 import com.example.sprintmongo.model.User;
 import com.example.sprintmongo.repository.AnimalRepo;
+import com.example.sprintmongo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -20,17 +22,16 @@ import java.util.List;
 public class MainController {
     @Autowired
     private AnimalRepo animalRepository;
+    @Autowired
+    private UserRepository userRepo;
+    //@Autowired
+    //private SearchRepository searchRepo;
 
     // Get Mappings
-    @GetMapping(path = "/signin")
-    public String getLogInPage() {
-
-        return "logIn";
-    }
 
     @GetMapping(path = "/signout")
     public String getLogOutPage() {
-        return "logout";
+        return "signout";
     }
 
 
@@ -64,6 +65,10 @@ public class MainController {
 
     @PostMapping(path = "/signup")
     public String submitSignupForm(@ModelAttribute("user")User user) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+        userRepo.save(user);
         System.out.println(user);
         return "signup_success";
     }
