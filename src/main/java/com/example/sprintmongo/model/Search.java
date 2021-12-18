@@ -12,14 +12,17 @@ public class Search {
     private String topic;
     private String database;
 
+    // Empty constructor
     public Search() {
     }
 
+    // Default Constructor
     public Search(String topic, String database) {
         this.topic = topic;
         this.database = database;
     }
 
+    // Getters and Setters
     public String getId() {
         return id;
     }

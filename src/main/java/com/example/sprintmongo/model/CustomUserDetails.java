@@ -8,6 +8,7 @@ import java.util.Collection;
 public class CustomUserDetails implements UserDetails {
     private User user;
 
+    // Default Constructor
     public CustomUserDetails(User user) {
         this.user = user;
     }
