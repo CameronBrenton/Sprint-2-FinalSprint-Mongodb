@@ -1,16 +1,17 @@
-package com.example.sprintmongo.controller;
+//This is the AnimalController class
 
+package com.example.sprintmongo.controller;
 import com.example.sprintmongo.model.Animal;
 import com.example.sprintmongo.repository.AnimalRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+// Port
 @CrossOrigin(origins = "http://localhost:9091")
 @RestController
 @RequestMapping("/api")
@@ -39,13 +40,15 @@ public class AnimalController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    // Get animal by id
     @GetMapping(value = "/animal/{animal_id}", produces = "application/json")
     public ResponseEntity<Animal> getAnimalsByAnimal_Id(@PathVariable("animal_id") long animal_id) {
         Optional<Animal> animalData = animalRepository.findById(animal_id);
         return animalData.map(animal -> new ResponseEntity<>(animal, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-
+    // Post animal
     @PostMapping("/animal")
     public ResponseEntity<Animal> createAnimals(@RequestBody Animal animal) {
         try {
@@ -59,6 +62,7 @@ public class AnimalController {
         }
     }
 
+    // Update animal
     @PutMapping("/animal/{animal_id}")
     public ResponseEntity<Animal> updateAnimal(@PathVariable("animal_id") long animal_id, @RequestBody Animal animal) {
         Optional<Animal> animalData = animalRepository.findById(animal_id);
@@ -74,6 +78,7 @@ public class AnimalController {
         } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    // Delete animal
     @DeleteMapping("/animal/{animal_id}")
     public ResponseEntity<HttpStatus> deleteAnimal(@PathVariable("animal_id") long animal_id) {
         try {

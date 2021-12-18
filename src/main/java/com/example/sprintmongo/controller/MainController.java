@@ -1,5 +1,6 @@
-package com.example.sprintmongo.controller;
+// This is the Main Controller
 
+package com.example.sprintmongo.controller;
 import com.example.sprintmongo.model.Animal;
 import com.example.sprintmongo.model.Search;
 import com.example.sprintmongo.model.User;
@@ -24,11 +25,8 @@ public class MainController {
     private AnimalRepo animalRepository;
     @Autowired
     private UserRepository userRepo;
-    //@Autowired
-    //private SearchRepository searchRepo;
 
-    // Get Mappings
-
+    // Signout
     @GetMapping(path = "/signout")
     public String getLogOutPage() {
         return "signout";
@@ -46,16 +44,18 @@ public class MainController {
         return "search";
     }
 
+    // Post search
     @PostMapping(path = "/search")
     public String submitSearchFormMongoDB(@ModelAttribute("search")Search search, Model model) {
         List<Animal> listAnimals = new ArrayList<Animal>();
+        // Query the database
         animalRepository.findByAnimalName(search.getTopic()).forEach(listAnimals::add);
         model.addAttribute("listAnimals", listAnimals);
         System.out.println("#######" + listAnimals);
         return "search_results";
     }
 
-    // Signup
+    // Get Signup
     @GetMapping(path = "/signup")
     public String showSignupForm(Model model) {
         User user = new User();
@@ -63,8 +63,10 @@ public class MainController {
         return "signup";
     }
 
+    // Post signup
     @PostMapping(path = "/signup")
     public String submitSignupForm(@ModelAttribute("user")User user) {
+        // Encrypt password into database
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
