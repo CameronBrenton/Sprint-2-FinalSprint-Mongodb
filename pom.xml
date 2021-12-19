@@ -14,6 +14,7 @@
 	<name>sprintmongo</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
+		<maven.test.skip>true</maven.test.skip>
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>

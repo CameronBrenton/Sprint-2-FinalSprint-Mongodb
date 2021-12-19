@@ -7,7 +7,7 @@
 </head>
 <!--how we search from our database-->
 <body>
-<label >Database: PgAdmin4</label>
+<label >Database: MongoDb</label>
 <form method="POST" action="#" th:action="@{/search}" th:object="${search}">
     <input type="text" th:field="*{topic}" placeholder="Enter your query">
     <!--    <select th:field="*{database}">-->
