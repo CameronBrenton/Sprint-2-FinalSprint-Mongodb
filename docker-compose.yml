@@ -1,0 +1,8 @@
+version: '3'
+services:
+  myapp-main:
+    image: finalsprint-mongo
+    ports:
+      - 9090:9090
+    environment:
+      - spring.datasource.uri= jdbc:mongodb+srv://sprintTeam:password2021@cluster1.fhszb.mongodb.net/animaldatabase?retryWrites=true&w=majority
